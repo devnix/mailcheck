@@ -1,6 +1,6 @@
 # Mailcheck for PHP
 
-![](https://github.com/devnix/mailcheck/workflows/Tests/badge.svg)
+[![](https://github.com/devnix/mailcheck/workflows/Tests/badge.svg)](https://github.com/devnix/mailcheck/actions?query=workflow%3ATests)
 
 Validate and suggest emails for your email inputs
 
