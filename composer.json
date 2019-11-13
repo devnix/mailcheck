@@ -2,7 +2,7 @@
     "name": "devnix/mailcheck",
     "description": "Provide email suggestions based on multiple dictionaries",
     "type": "library",
-    "license": "GPLv3",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "DevNIX",
