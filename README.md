@@ -61,4 +61,4 @@ You can execute all the tests by rugging `composer test`. We use tools like
 [PHPStan](https://github.com/phpstan/phpstan), 
 [PHPUnit](https://github.com/sebastianbergmann/phpunit), and 
 [PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer). We like to follow 
-the [Symfony Coding Standars](https://symfony.com/doc/current/contributing/code/standards.html).
+the [Symfony Coding Standards](https://symfony.com/doc/current/contributing/code/standards.html).
