@@ -2,25 +2,20 @@
 
 namespace Devnix\Mailcheck;
 
-use LayerShifter\TLDExtract\Extract;
-use LayerShifter\TLDExtract\ResultInterface;
+use Utopia\Domains\Domain as DomainParser;
 
 class Domain
 {
-    /**
-     * @var ResultInterface
-     */
     protected $domain;
 
     public function __construct(string $domain)
     {
-        $extract = new Extract(null, null, Extract::MODE_ALLOW_ICANN | Extract::MODE_ALLOW_PRIVATE | Extract::MODE_ALLOW_NOT_EXISTING_SUFFIXES);
-        $this->domain = $extract->parse($domain);
+        $this->domain = new DomainParser($domain);
     }
 
     public function __toString()
     {
-        return $this->domain->getFullHost();
+        return $this->domain->get();
     }
 
     /**
@@ -34,9 +29,17 @@ class Domain
     /**
      * @return string
      */
+    public function getTld()
+    {
+        return $this->domain->getTld();
+    }
+
+    /**
+     * @return string
+     */
     public function getSubdomain()
     {
-        return $this->domain->getSubdomain();
+        return $this->domain->getSub();
     }
 
     /**
@@ -44,7 +47,7 @@ class Domain
      */
     public function getHostname()
     {
-        return $this->domain->getHostname();
+        return $this->domain->getName();
     }
 
     /**
@@ -54,11 +57,11 @@ class Domain
     {
         $result = '';
 
-        if (!empty($this->domain->getSubdomain())) {
-            $result .= $this->domain->getSubdomain().'.';
+        if ('' !== $this->getSubdomain()) {
+            $result .= $this->getSubdomain().'.';
         }
 
-        $result .= $this->domain->getHostname();
+        $result .= $this->getHostname();
 
         return $result;
     }
