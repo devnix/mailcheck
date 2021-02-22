@@ -17,7 +17,7 @@ class MailcheckTest extends TestCase
         $this->mailcheck = new Mailcheck();
     }
 
-    public function testSuggestJustThisOne()
+    public function testSuggest()
     {
         // Domain checks
         $this->assertContains('example@gmail.com', $this->mailcheck->suggest('example@gmil.com'));
