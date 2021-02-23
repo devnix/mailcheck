@@ -65,12 +65,14 @@ class Mailcheck
             // If not, try to suggest a TLD
             $parsedDomain = $parsedEmail->getDomain();
 
+            $suffix = $parsedDomain->getSuffix() ?: $parsedDomain->getTld();
+
             // If there is not any suffix don't return suggestions
-            if (empty($parsedDomain->getSuffix())) {
+            if ('' === $suffix) {
                 return [];
             }
 
-            $suggestionTld = $this->findSuggestions($parsedDomain->getSuffix(), $this->getDictionary()->getTlds(), $threshold);
+            $suggestionTld = $this->findSuggestions($suffix, $this->getDictionary()->getTlds(), $threshold);
 
             if (false !== $suggestionTld) {
                 foreach ($suggestionTld as $tld) {
