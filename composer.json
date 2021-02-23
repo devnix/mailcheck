@@ -10,9 +10,11 @@
         }
     ],
     "require": {
+        "php": "^7.4|^8.0",
         "ext-curl": "*",
+        "ext-intl": "*",
         "egulias/email-validator": "^2.1",
-        "layershifter/tld-extract": "^2.0"
+        "utopia-php/domains": "^1.1"
     },
     "autoload": {
         "psr-4": {
@@ -39,6 +41,7 @@
             "@composer run lint",
             "@composer run phpstan",
             "@composer run phpunit"
-        ]
+        ],
+        "import": "@php ./vendor/utopia-php/domains/data/import.php"
     }
 }
